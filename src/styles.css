@@ -57,9 +57,11 @@
 .card {
     border: none;
 }
+
 .card-body {
     border: none;
 }
+
 .card-footer {
     background-color: #ffffff;
     border: none;
@@ -72,6 +74,7 @@ span:hover {
 .link {
     cursor: pointer;
 }
+
 .invis:hover {
     color: black;
 }
@@ -79,9 +82,11 @@ span:hover {
 .compare {
     color: deeppink;
 }
+
 .compareTo {
     color: deepskyblue;
 }
+
 div.container{
     align-content: center;
 }
