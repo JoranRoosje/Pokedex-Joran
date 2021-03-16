@@ -1,0 +1,24 @@
+<h1 class="poketext-title">Which pokemon do you want to compare to {{this.compare}} </h1>
+
+<div>
+    <table class="table table-bordered table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Type(s)</th>
+                <th></th>
+            </tr>
+        </thead>
+            <tbody id="rowClick">                 
+                <tr *ngFor="let pokemon of pokemons">
+                    <ng-container>
+                        <td>{{ pokemon.id }}</td>
+                        <td>{{ pokemon.name }}</td>
+                        <td>{{ pokemon.types[0].type.name }}<span *ngIf="pokemon.types[1]?.type.name">, </span>{{ pokemon.types[1]?.type.name }}</td>   
+                        <td><a class="link"(click)="openCompareModal(this.compare, pokemon.name)">compare</a></td>        
+                    </ng-container>
+                </tr>
+            </tbody> 
+        </table>
+    </div>

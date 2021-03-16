@@ -1,0 +1,53 @@
+<div class="card">
+    <div class="card-header">      
+        <h1 class="poketext-title">{{ pageTitle }}:</h1><br>
+        <!-- <h3>Until which generation do you wish to see?</h3>
+        <h4>Currently: {{ currentGen }}</h4>
+        <button class="btn btn-primary" #Gen1 value="Gen I" (click)="getGen(this.GenOne)" (click)="changeGen(this.Gen1.value)" >{{ this.Gen1.value }}</button>
+        <button class="btn btn-primary" #Gen2 value="Gen II" (click)="getGen(this.GenTwo)" (click)="changeGen(this.Gen2.value)">{{ this.Gen2.value }}</button>
+        <button class="btn btn-primary" #Gen3 value="Gen III" (click)="getGen(this.GenThree)" (click)="changeGen(this.Gen3.value)">{{ this.Gen3.value }}</button>
+        <button class="btn btn-primary" #Gen4 value="Gen IV" (click)="getGen(this.GenFour)" (click)="changeGen(this.Gen4.value)">{{ this.Gen4.value }}</button>
+        <button class="btn btn-primary" #Gen5 value="Gen V" (click)="getGen(this.GenFive)" (click)="changeGen(this.Gen5.value)">{{ this.Gen5.value }}</button>
+        <button class="btn btn-primary" #Gen6 value="Gen VI" (click)="getGen(this.GenSix)" (click)="changeGen(this.Gen6.value)">{{ this.Gen6.value }}</button>
+        <button class="btn btn-primary" #Gen7 value="Gen VII" (click)="getGen(this.GenSeven)" (click)="changeGen(this.Gen7.value)">{{ this.Gen7.value }}</button>
+        <button class="btn btn-primary" #Gen8 value="Gen IIX" (click)="getGen(this.GenEight)" (click)="changeGen(this.Gen8.value)">{{ this.Gen8.value }}</button>
+    </div> -->
+    <div class="card-body">
+      <div class='col-md-2' style="margin-bottom: 5px;">Filter by:</div>
+      <div class='col-md-4'>
+        <input type='text' style="margin-bottom: 10px;"
+               [(ngModel)]='pokemonListFilter' />
+      </div>
+        <div>
+            <table class="table table-bordered table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Id&nbsp;<i (click)="sort('id')" class="fa fa-sort"></i></th>
+                        <th>Name&nbsp;<i (click)="sort('name')" class="fa fa-sort"></i></th>
+                        <th>Type(s)</th>
+                        <th class="th-favorites"></th>
+                        <th class="th-details"></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                    <tbody id="rowClick">                 
+                        <tr *ngFor="let pokemon of filteredPokemon | orderBy: key: reverse ">
+                            <ng-container>
+                                <td>{{ pokemon.id }}</td>
+                                <td>{{ pokemon.name }}</td>
+                                <td>{{ pokemon.types[0].type.name }}<span *ngIf="pokemon.types[1]?.type.name">, </span>{{ pokemon.types[1]?.type.name }}</td>
+                                <td *ngIf="!ifFavorite(pokemon.id)"><span class="fa fa-star not-favorite" (click)='toggleFavorite(pokemon)'></span></td>
+                                <td *ngIf="ifFavorite(pokemon.id)"><span class="fa fa-star favorite" (click)='toggleFavorite(pokemon)'></span></td>
+                                <td><a class="link details-link" (click)='openDetailsModal(pokemon.id, pokemon.name, this.pokemon.types[0].type.name, pokemon.sprites.front_default)'>details</a></td>   
+                                <td><a class="link" [routerLink]="['/pokemons/compare', pokemon.name]">compare</a></td>        
+                            </ng-container>
+                        </tr>
+                    </tbody> 
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- &nbsp;<i (click)="sort('types[0].type')" class="fa fa-sort"></i> -->
+    <!-- <pagination-controls (pageChange)="page = $event; offset = ($event - 1).toString(); pokemons = []; filteredPokemon = pokemons; getPokemons()"></pagination-controls> -->
+
+<!-- | paginate: { itemsPerPage: this.itemsPerPage, currentPage: page, totalItems: totalPokemons } -->

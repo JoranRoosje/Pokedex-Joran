@@ -1,0 +1,14 @@
+<h2 mat-dialog-title>
+    You are comparing <span class="compare">{{this.data.compare}}</span> to <span class="compareTo">{{this.data.compareTo}}</span>
+</h2>
+<mat-dialog-content class="mat-typography">
+    <canvas baseChart
+        [datasets]="radarChartData"
+        [labels]="radarChartLabels"
+        [options]="radarChartOptions"
+        [legend]="radarChartLegend"
+        [chartType]="radarChartType"></canvas>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button class="btn btn-primary" mat-button mat-dialog-close>Close</button>
+</mat-dialog-actions>

@@ -1,0 +1,13 @@
+<h2 mat-dialog-title>Add pokémon?</h2>
+<mat-dialog-content>
+  <div class="pokemon-edit">
+    Pokémon Id: <input type="number" #id><br>
+    Pokémon Name: <input type="text" #name><br>
+    Pokémon Type(s): <input type="text" #type><br>
+</div>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button class="btn btn-primary" mat-button mat-dialog-close>Cancel</button>
+
+  <!-- <button class="btn btn-primary" mat-button [mat-dialog-close]="true" [routerLink]="['/pokemons']" (click)='addPokemon(this.id.value, this.name.value, this.type.value)'>Add</button> -->
+</mat-dialog-actions>

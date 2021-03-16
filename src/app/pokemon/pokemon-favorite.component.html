@@ -1,0 +1,30 @@
+<div class="card">
+    <div class="card-header" *ngIf="this.populateFavorites()?.length">
+        <h1 class="poketext-title">{{ pageTitle }}:</h1>
+    </div>
+    <div class="card-header" *ngIf="!this.populateFavorites()?.length">
+        <h1 class="poketext-title">It appears you currently do not have any Pokémons favorited!<br>
+            Please navigate to the Pokédex page and add some to your favorites.</h1>
+    </div>
+    <div class="card-body">
+        <div>
+            <table class="table table-bordered" *ngIf='this.populateFavorites()?.length'>
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Type(s)</th>
+                        <th></th>
+                    </tr>
+                </thead> 
+                <tbody id="rowClick">                 
+                        <tr *ngFor='let pokemon of this.populateFavorites()'>
+                            <td>{{ pokemon.id }}</td>
+                            <td>{{ pokemon.name }}</td>
+                            <td>{{ pokemon.types[0].type.name }}<span *ngIf="pokemon.types[1]?.type.name">, </span>{{ pokemon.types[1]?.type.name }}</td>
+                            <td><a class="link details-link" (click)='openDetailsModal(pokemon.id, pokemon.name, this.pokemon.types[0].type.name, pokemon.sprites.front_default)'>details</a>&nbsp;<a class="link" (click)='removeFromFavorites(pokemon.id)'>remove</a></td>
+                        </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>

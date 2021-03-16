@@ -1,1 +1,120 @@
-/* You can add global styles to this file, and also import other style files */
+/* @import '~@angular/material/prebuilt-themes/indigo-pink.css'; */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import url(//db.onlinewebfonts.com/c/f4d1593471d222ddebd973210265762a?family=Pokemon);
+/*@import "~@font-awesome/css/font-awesome.min.css";*/
+
+/* body, html {
+    height: 100%;
+    color: black;
+} */
+
+/* body{
+     background-image: url("assets/images/pokemongo01.jpg"); 
+} */
+.navbar {
+    margin-bottom: 0;
+    border-radius: 0;
+}
+
+.row.content {
+    height:auto;
+}
+
+.mat-dialog-actions{
+    justify-content: flex-end;
+}
+
+.btn {
+    margin-right: 5px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.fa-star:hover {
+    cursor: pointer;
+}
+
+.not-favorite {
+    color: #ccd6dd;
+}
+
+.favorite {
+    color: #ffac33;
+}
+
+.pokemonImage {
+    height: 150px;
+    width: 150px;
+    float: right;
+    display: inline;
+}
+
+.card-header {
+    background-color: #ffffff;
+    border: none;
+}
+.card {
+    border: none;
+}
+.card-body {
+    border: none;
+}
+.card-footer {
+    background-color: #ffffff;
+    border: none;
+}
+
+span:hover {
+    color: #ffac33;
+}
+
+.link {
+    cursor: pointer;
+}
+.invis:hover {
+    color: black;
+}
+/* #divChart {
+    display: block;
+    width: 100px;
+} */
+.compare {
+    color: deeppink;
+}
+.compareTo {
+    color: deepskyblue;
+}
+div.container{
+    align-content: center;
+}
+
+.banner {
+    width: 50%;
+}
+
+.poketext-title {
+    -webkit-text-stroke: 3px rgb(85, 85, 233);
+    color: gold;
+    font-family: Pokemon;
+}
+
+.poketext-paragraph {
+    font-family: Pokemon;
+    color: gold;
+    -webkit-text-stroke: 1.3px rgb(85, 85, 233);
+}
+
+h1 {
+    margin: 10px 10px 10px 10px;
+}
+
+.poketext-subtitle {
+    -webkit-text-stroke: 2.3px rgb(85, 85, 233);
+    color:gold;
+    font-family: Pokemon;
+    margin-bottom: 10px;
+}
+
+p {
+    font-family: cursive;
+}
