@@ -4,10 +4,8 @@ import { PokemonListComponent } from './pokemon-list.component';
 import { RouterModule } from '@angular/router';
 import { PokemonService } from './pokemon.service';
 import { FormsModule } from '@angular/forms';
-import { DeletePokemonModalComponent } from '../modals/delete-pokemon.modal.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { UpdatePokemonModalComponent } from '../modals/update-pokemon.modal.component';
 import { AddPokemonModalComponent } from '../modals/add-pokemon.modal.component';
 import { FavoritePokemonComponent } from './pokemon-favorite.component';
 import { DetailsPokemonModalComponent } from '../modals/details-pokemon.modal.component';
@@ -18,6 +16,7 @@ import { Ng2OrderModule } from 'ng2-order-pipe';
 import { ChartsModule } from 'ng2-charts';
 import { ComparePokemonComponent } from './pokemon-compare.component';
 import { ComparePokemonModalComponent } from '../modals/compare-pokemon.modal.component';
+//import { NgSelectModule } from '@ng-select/ng-select';
 
 
 @NgModule({
@@ -32,16 +31,16 @@ import { ComparePokemonModalComponent } from '../modals/compare-pokemon.modal.co
         MatFormFieldModule,
         ChartsModule,
         Ng2OrderModule,
+        //NgSelectModule,
         RouterModule.forChild([
             { path: 'pokemons', component: PokemonListComponent },
             { path: 'pokemons/favorites', component: FavoritePokemonComponent },
-            { path: 'pokemons/compare/:name', component: ComparePokemonComponent }
+            { path: 'pokemons/compare/:name?', component: ComparePokemonComponent },
+            //{ path: 'pokemons/compare', component: ComparePokemonComponent }
         ])
     ],
     declarations: [
         PokemonListComponent,
-        DeletePokemonModalComponent,
-        UpdatePokemonModalComponent,
         AddPokemonModalComponent,
         FavoritePokemonComponent,
         DetailsPokemonModalComponent,

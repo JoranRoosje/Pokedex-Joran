@@ -14,6 +14,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ChartsModule } from 'ng2-charts';
+import { LoginComponent } from './user/login.component';
 
 @NgModule({
   imports: [
@@ -27,7 +28,8 @@ import { ChartsModule } from 'ng2-charts';
   declarations: [
     AppComponent,
     WelcomeComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    LoginComponent
   ],
   providers: [{ provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false} }],
   bootstrap: [AppComponent]

@@ -1,7 +1,7 @@
 import { removeSummaryDuplicates } from "@angular/compiler";
 import { Component } from "@angular/core";
 import { MatDialog } from "@angular/material";
-import { ActivatedRoute, Router } from "@angular/router";
+import { ActivatedRoute, RouteConfigLoadStart, Router } from "@angular/router";
 import { Observable } from "rxjs";
 import { ComparePokemonModalComponent } from "../modals/compare-pokemon.modal.component";
 import { PokemonService } from "./pokemon.service";
@@ -20,22 +20,28 @@ export class ComparePokemonComponent {
     speed: string;
     pokemons: any[] = [];
     compare: any;
+    selectedComparePokemon: any;
+    selectedComparePokemonTo: any;
 
     constructor(private route: ActivatedRoute,
                 private pokemonService: PokemonService,
                 public matDialog: MatDialog){        
           this.getPokemons();
-          this.route.url
-          .subscribe((response: any) => {
-              //console.log(response[2].path);
-              //this.compare = this.pokemonService.getPokemon(response[2].path);
-              this.pokemonService.getPokemon(response[2].path)
+            
+              this.route.url
               .subscribe((response: any) => {
-                  console.log(response.name);
-                  this.compare = response.name;
-                  console.log(this.compare);
-              })
-          });
+                  //console.log(response[2].path);
+                  //this.compare = this.pokemonService.getPokemon(response[2].path);
+                  if(response[2].path != 'empty') {
+                      this.pokemonService.getPokemon(response[2].path)
+                      .subscribe((response: any) => {
+                          console.log(response.name);
+                          this.compare = response.name;
+                          console.log(this.compare);
+                        })
+                  }       
+              });
+       
          
     }
 

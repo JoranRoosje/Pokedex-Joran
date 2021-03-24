@@ -1,7 +1,7 @@
-<h1 class="poketext-title">Which pokemon do you want to compare to {{this.compare}} </h1>
+<h1 class="poketext-title">Which pokemon do you want to compare?</h1>
 
 <div>
-    <table class="table table-bordered table-hover">
+    <!-- <table class="table table-bordered table-hover">
         <thead class="thead-dark">
             <tr>
                 <th>Id</th>
@@ -20,5 +20,27 @@
                     </ng-container>
                 </tr>
             </tbody> 
-        </table>
+        </table> -->
+
+        <select *ngIf="this.compare">
+            <option *ngFor="let pokemon of pokemons" [selected]="pokemon.name == this.compare" [value]="pokemon.name" #compareFull>           
+                    {{pokemon.name}}               
+            </option>
+            <option>{{this.compare}}</option>
+        </select>
+        <select *ngIf="!this.compare" name="pokemon1" id="pokemon1" >
+            <option>--Please choose a pokemon--</option>
+            <option *ngFor="let pokemon of pokemons" [value]="pokemon.name" #compareEmpty>
+                    {{pokemon.name}}
+            </option>
+        </select>
+        To
+        <select name="pokemon2" id="pokemon2">
+            <option>-- Please choose a pokemon --</option>
+            <option *ngFor="let pokemon of pokemons" [value]="pokemon.name" #compareTo>
+                    {{pokemon.name}}
+            </option>
+        </select>
+        <button *ngIf="this.compare" class="btn btn-primary" (click)="openCompareModal(compareFull.value, compareTo.value)">Compare</button>
+        <button *ngIf="!this.compare" class="btn btn-primary" (click)="openCompareModal(compareEmpty.value, compareTo.value)">Compare</button>
     </div>
